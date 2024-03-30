@@ -1,28 +1,17 @@
 import { useState, useEffect } from "react"
 import Header from "./components/Header"
 import Guitar from "./components/Guitar"
-
+import { db } from "./data/db"
 
 
 function App() {
 
-  // State
-  const [auth, setAuth] = useState([])
-  const [total, setTotal] = useState(0)
-  const [cart, setCart] = useState([])
-
-  console.log(auth)
+  const [data, setData] = useState([])
 
   useEffect(()=>{
-    if(auth){
-      console.log('Usuario Autenticado')
-    }
-  },[auth])
+    setData(db)
+  },[])
 
-  setTimeout(() => {
-    setAuth(true)
-  }, 3000);
-  
   return(
     <>
       <Header />
