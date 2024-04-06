@@ -10,8 +10,9 @@ function App() {
   function addToCart(item) {
     const itemExists = cart.findIndex((guitar) => guitar.id === item.id);
     if (itemExists >= 0) {
-      // Elemento existe en el carrito
-      console.log("Ya existe el item");
+      const updatedCart = [...cart]; // Este nuevo objeto se crea con el fin de mantener la inmutabilidad del arreglo cart.
+      updatedCart[itemExists].quantity++;
+      setCart(updatedCart);
     } else {
       item.quantity = 1;
       setCart((prevCart) => [...prevCart, item]);
