@@ -10,6 +10,10 @@ function App() {
   const MIN_ITEMS = 1;
   const MAX_ITEMS = 5;
 
+  useEffect(() => {
+    saveLocalStorage();
+  }, [cart]);
+
   function addToCart(item) {
     const itemExists = cart.findIndex((guitar) => guitar.id === item.id);
     if (itemExists >= 0) {
@@ -54,6 +58,10 @@ function App() {
 
   function clearCart() {
     setCart([]);
+  }
+
+  function saveLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 
   return (
