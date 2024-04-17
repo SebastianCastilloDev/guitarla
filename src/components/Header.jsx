@@ -1,5 +1,3 @@
-import { useCart } from "../hooks/useCart";
-
 function Header({
   cart,
   removeFromCart,
